@@ -1,27 +1,35 @@
+@font-face {
+  font-family: FuzzyBubbles;
+  src: url(assets/fonts/FuzzyBubbles-Regular.ttf);
+}
+
 body {
   display: flex;
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
+  font-family: FuzzyBubbles;
 }
 
 h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 60px;
 }
 
+.main-section >*{
+  flex:1;
+}
 .main-section {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-content: center;
 }
 
 aside {
   text-align: center;
   width: 300px;
-
   border-left: 2px solid black;
 }
 
@@ -30,11 +38,10 @@ aside {
   flex-wrap: wrap;
   max-width: 900px;
   align-items: center;
-
   margin: 0 auto;
 }
 
-.palette > * {
+.palette>* {
   margin: 0 10px;
 }
 
@@ -75,6 +82,7 @@ img {
 button {
   padding: 15px;
   margin: 100px 100px 200px;
+  font-family: inherit;
 }
 
 .buttons {
