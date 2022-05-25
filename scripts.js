@@ -11,11 +11,11 @@ let savePaletteButton = document.querySelector(".save-palette-button");
 class Color {
   constructor() {
     this.isLocked = false;
-    this.color = "#";
+    this.color = color;
   }
 
-  getColor() {
-    this.hexValues = [
+  getHex() {
+    let hexValues = [
       0,
       1,
       2,
@@ -33,9 +33,10 @@ class Color {
       "E",
       "F",
     ];
+    let color = "#";
     for (var i = 0; i < 6; i++) {
-      this.index = Math.floor(Math.random() * this.hexValues.length);
-      this.color += this.hexValues[this.index];
+      color += hexValues[Math.floor(Math.random() * 16)];
     }
+    this.color = color;
   }
 }
