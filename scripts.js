@@ -12,7 +12,3 @@ let lock5El = document.querySelector("#lock-5")
 let buttonsEl = document.querySelector(".buttons");
 let newPaletteButtonEl = document.querySelector(".new-palette-button");
 let savePaletteButtonEl = document.querySelector(".save-palette-button");
-
-
-const color =new Color()
-console.log(color,"!!")
