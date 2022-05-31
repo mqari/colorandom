@@ -1,22 +1,3 @@
-
-
-class Color {
-  constructor() {
-    this.isLocked = false;
-    this.color = this.getHex()
-  }
-
-  getHex() {
-
-    let color = "#";
-    for (var i = 0; i < 6; i++) {
-      color += hexValues[Math.floor(Math.random() * hexValues.length)];
-    }
-    return color
-  }
-}
-
-
 let hexValues = [
   0,
   1,
@@ -35,3 +16,22 @@ let hexValues = [
   "E",
   "F",
 ];
+
+
+class Color {
+  constructor() {
+    this.isLocked = false;
+    this.generateColor()
+  }
+
+  generateColor() {
+
+    let color = "#";
+    for (var i = 0; i < 6; i++) {
+      color += hexValues[Math.floor(Math.random() * hexValues.length)];
+    }
+    this.color = color
+  }
+
+
+}
