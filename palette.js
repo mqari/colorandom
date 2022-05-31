@@ -16,7 +16,7 @@ class Palette {
       const lockEl = document.querySelector(`#lock-${i + 1}`);
       lockEl.addEventListener("click", () => {
         color.isLocked = !color.isLocked;
-        lockEl.src = lockEl.src === img1 ? img2 : img1;
+        lockEl.src = color.isLocked ? img2 : img1;
       });
     });
   }
