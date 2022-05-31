@@ -21,15 +21,17 @@ let hexValues = [
 class Color {
   constructor() {
     this.isLocked = false;
-    this.color = this.getColor()
+    this.generateColor()
   }
 
-  getColor() {
+  generateColor() {
 
     let color = "#";
     for (var i = 0; i < 6; i++) {
       color += hexValues[Math.floor(Math.random() * hexValues.length)];
     }
-    return color
+    this.color = color
   }
+
+
 }

@@ -13,3 +13,5 @@ let buttonsEl = document.querySelector(".buttons");
 let newPaletteButtonEl = document.querySelector(".new-palette-button");
 let savePaletteButtonEl = document.querySelector(".save-palette-button");
 const palette = new Palette()
+
+newPaletteButtonEl.addEventListener('click', ()=>palette.generateNewPalette())
