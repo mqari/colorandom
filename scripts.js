@@ -21,26 +21,26 @@ savePaletteButtonEl.addEventListener("click", () => {
     savedPalettesSection.innerHTML = "";
     savedPalettes.forEach((palette) => {
         savedPalettesSection.innerHTML += `
-    <div style="display: flex; justify-content: space-around"> 
-    <div style="border: solid black 1px; width: 25px; height: 25px; background-color: ${palette[0].color}">
+    <div style="display: flex; justify-content: space-around;" > 
+    <div style="margin-bottom: 20px; border: solid black 1px; width: 25px; height: 25px; background-color: ${palette[0].color}">
     
     </div>
-    <div style="border: solid black 1px; width: 25px; height: 25px; background-color: ${palette[1].color}">
+    <div style="margin-bottom: 20px; border: solid black 1px; width: 25px; height: 25px; background-color: ${palette[1].color}">
     
     </div>
-    <div style="border: solid black 1px; width: 25px; height: 25px; background-color: ${palette[2].color}">
+    <div style="margin-bottom: 20px; border: solid black 1px; width: 25px; height: 25px; background-color: ${palette[2].color}">
     
     </div>
-    <div style="border: solid black 1px; width: 25px; height: 25px; background-color: ${palette[3].color}">
+    <div style="margin-bottom: 20px; border: solid black 1px; width: 25px; height: 25px; background-color: ${palette[3].color}">
     
     </div>
-    <div style="border: solid black 1px; width: 25px; height: 25px; background-color: ${palette[4].color}">
+    <div style="margin-bottom: 20px; border: solid black 1px; width: 25px; height: 25px; background-color: ${palette[4].color}">
     
     </div>
-    <img src="assets/images/delete.png">
+    <img style="height:17px; width:17px" src="assets/images/delete.png">
     </div>
 
     `;
     });
-    //generateNewPalette()
+    palette.generateNewPalette()
 });
