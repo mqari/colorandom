@@ -1,20 +1,41 @@
 let paletteEl = document.querySelector(".palette");
-let color1El = document.querySelector(".color-1");
-let color2El = document.querySelector(".color-2");
-let color3El = document.querySelector(".color-3");
-let color4El = document.querySelector(".color-4");
-let color5El = document.querySelector(".color-5");
-let lock1El = document.querySelector("#lock-1");
-let lock2El = document.querySelector("#lock-2");
-let lock3El = document.querySelector("#lock-3");
-let lock4El = document.querySelector("#lock-4");
-let lock5El = document.querySelector("#lock-5");
 let buttonsEl = document.querySelector(".buttons");
 let newPaletteButtonEl = document.querySelector(".new-palette-button");
 let savePaletteButtonEl = document.querySelector(".save-palette-button");
+let savedPalettesSection = document.querySelector(".saved-palettes");
 
-const palette = new Palette();
+let palette = new Palette();
+let savedPalettes = [];
 
 newPaletteButtonEl.addEventListener("click", () =>
   palette.generateNewPalette()
 );
+
+savePaletteButtonEl.addEventListener("click", () => {
+  savedPalettes.push(palette);
+  savedPalettesSection.innerHTML = "";
+  savedPalettes.forEach((palette) => {
+    savedPalettesSection.innerHTML += `
+    <div style="display: flex; justify-content: space-around"> 
+    <div style="border: solid black 1px; width: 25px; height: 25px; background-color: ${palette.colors[0].color}">
+    
+    </div>
+    <div style="border: solid black 1px; width: 25px; height: 25px; background-color: ${palette.colors[1].color}">
+    
+    </div>
+    <div style="border: solid black 1px; width: 25px; height: 25px; background-color: ${palette.colors[2].color}">
+    
+    </div>
+    <div style="border: solid black 1px; width: 25px; height: 25px; background-color: ${palette.colors[3].color}">
+    
+    </div>
+    <div style="border: solid black 1px; width: 25px; height: 25px; background-color: ${palette.colors[4].color}">
+    
+    </div>
+    <img src="assets/images/delete.png">
+    </div>
+
+    `;
+  });
+  //generateNewPalette()
+});
