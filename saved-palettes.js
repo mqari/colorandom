@@ -4,7 +4,11 @@ savePaletteButtonEl.addEventListener("click", () => {
       return { ...color };
     })
   );
+  renderSavedPalettes();
+  palette.generateNewPalette();
+});
 
+function renderSavedPalettes() {
   savedPalettesSection.innerHTML = "";
   savedPalettes.forEach((palette) => {
     savedPalettesSection.innerHTML += `
@@ -29,8 +33,7 @@ savePaletteButtonEl.addEventListener("click", () => {
 
     `;
   });
-  palette.generateNewPalette();
-});
+}
 
 function deleteSavedPalette(id) {
   for (let i = 0; i < savedPalettes.length; i++) {
@@ -38,11 +41,11 @@ function deleteSavedPalette(id) {
     if (id === element.id) {
       savedPalettes.splice(i, 1);
     }
-    //renderSavedPalettes();
+    renderSavedPalettes();
   }
 }
 
-//create a function to render the savedPalettes array in the aside so we can call it multiple times
+//delete palette by clicking trash img
 
 //have the ability to name the individual palette
 
