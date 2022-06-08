@@ -8,19 +8,19 @@ let palette = new Palette();
 let savedPalettes = [];
 
 newPaletteButtonEl.addEventListener("click", () =>
-    palette.generateNewPalette()
+  palette.generateNewPalette()
 );
 
 savePaletteButtonEl.addEventListener("click", () => {
+  savedPalettes.push(
+    palette.colors.map((color) => {
+      return { ...color };
+    })
+  );
 
-    savedPalettes.push(palette.colors.map(color => {
-        return {...color }
-    }));
-
-
-    savedPalettesSection.innerHTML = "";
-    savedPalettes.forEach((palette) => {
-        savedPalettesSection.innerHTML += `
+  savedPalettesSection.innerHTML = "";
+  savedPalettes.forEach((palette) => {
+    savedPalettesSection.innerHTML += `
     <div style="display: flex; justify-content: space-around;" > 
     <div style="margin-bottom: 20px; border: solid black 1px; width: 25px; height: 25px; background-color: ${palette[0].color}">
     
@@ -41,6 +41,6 @@ savePaletteButtonEl.addEventListener("click", () => {
     </div>
 
     `;
-    });
-    palette.generateNewPalette()
+  });
+  palette.generateNewPalette();
 });
