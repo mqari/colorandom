@@ -4,9 +4,14 @@ savePaletteButtonEl.addEventListener("click", () => {
       return { ...color };
     })
   );
+  renderSavedPalettes();
+  palette.generateNewPalette();
+});
 
+function renderSavedPalettes() {
   savedPalettesSection.innerHTML = "";
-  savedPalettes.forEach((palette) => {
+  for (let i = 0; i < savedPalettes.length; i++) {
+    const palette = savedPalettes[i];
     savedPalettesSection.innerHTML += `
     <div style="display: flex; justify-content: space-around;" > 
     <div style="margin-bottom: 20px; border: solid black 1px; width: 25px; height: 25px; background-color: ${palette[0].color}">
@@ -24,25 +29,27 @@ savePaletteButtonEl.addEventListener("click", () => {
     <div style="margin-bottom: 20px; border: solid black 1px; width: 25px; height: 25px; background-color: ${palette[4].color}">
     
     </div>
-    <img id="${palette.id}" onClick="deleteSavedPalette(this.id)" style="height:17px; width:17px" src="assets/images/delete.png">
+    <img id="${palette.id}" onClick="deleteSavedPalette(event)" style="height:17px; width:17px" src="assets/images/delete.png">
     </div>
 
     `;
-  });
-  palette.generateNewPalette();
-});
-
-function deleteSavedPalette(id) {
-  for (let i = 0; i < savedPalettes.length; i++) {
-    const element = savedPalettes[i];
-    if (id === element.id) {
-      savedPalettes.splice(i, 1);
-    }
-    //renderSavedPalettes();
   }
 }
 
-//create a function to render the savedPalettes array in the aside so we can call it multiple times
+function deleteSavedPalette(event) {
+  alert("I was clicked");
+  console.log(event.target);
+  // event.target.remove();
+  // for (let i = 0; i < savedPalettes.length; i++) {
+  //   const element = savedPalettes[i];
+  //   if (id === element.id) {
+  //     savedPalettes[i].remove();
+  //   }
+  //   renderSavedPalettes();
+  // }
+}
+
+//delete palette by clicking trash img
 
 //have the ability to name the individual palette
 
