@@ -2,14 +2,15 @@ class Palette {
   constructor(id, colors) {
     this.id = id || this.getId();
     this.colors = colors || this.getPalette();
-    this.assignEventListener();
+    this.assignLockEventListener();
+    this.assignInputEventListener()
     this.updateDOM();
   }
   getId() {
     return Math.floor(Math.random() * 999999 + 1);
   }
 
-  assignEventListener() {
+  assignLockEventListener() {
     var img1 = "assets/images/unlocked.png";
     var img2 = "assets/images/locked.png";
     this.colors.forEach((color, i) => {
@@ -21,6 +22,18 @@ class Palette {
     });
   }
 
+  assignInputEventListener() {
+    for (let i = 1; i <= 5; i++) {
+      document.querySelector(`#hexcode-${i}`).addEventListener('keyup', (e) => {
+        if (e.key !== 'Enter') return
+        const color = "#" + document.querySelector(`#hexcode-${i}`).value
+        this.colors[i - 1].color = color
+        this.updateDOM()
+      })
+    }
+  }
+
+
   getPalette() {
     var colorArray = [];
     for (let i = 1; i <= 5; i++) {
@@ -30,12 +43,14 @@ class Palette {
   }
 
   updateDOM() {
-    this.colors.forEach(({ color }, i) => {
+    this.colors.forEach(({
+      color
+    }, i) => {
       const boxEl = document.querySelector(`.color-${i + 1} .color-container`);
-      const textEl = document.querySelector(`.color-${i + 1} p span`);
+      const textEl = document.querySelector(`.color-${i + 1} p input`);
 
       boxEl.style.background = color;
-      textEl.innerHTML = color;
+      textEl.value = color;
     });
   }
 
