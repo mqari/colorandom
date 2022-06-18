@@ -91,4 +91,6 @@ input {
   width: 70px;
   cursor: pointer;
   border: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
