@@ -17,10 +17,6 @@ h1 {
   font-size: 60px;
 }
 
-.main-section>* {
-  /* flex: 1; */
-}
-
 .main-section {
   flex: 1;
   display: flex;
@@ -83,11 +79,16 @@ img {
 
 button {
   padding: 15px;
-  margin: 100px 100px 200px;
   font-family: inherit;
 }
 
 .buttons {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+}
+
+input {
+  width: 70px;
+  cursor: grabbing;
+  border: none;
 }
