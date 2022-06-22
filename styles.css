@@ -39,7 +39,7 @@ aside {
   margin: 0 auto;
 }
 
-.palette>* {
+.palette > * {
   margin: 0 10px;
 }
 
@@ -89,6 +89,8 @@ button {
 
 input {
   width: 70px;
-  cursor: grabbing;
+  cursor: pointer;
   border: none;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
