@@ -25,22 +25,18 @@ class Palette {
   assignInputEventListener() {
     for (let i = 1; i <= 5; i++) {
       document.querySelector(`#hexcode-${i}`).addEventListener("keyup", (e) => {
-
-        if (e.key === "Enter" || e.key === "Backspace" || e.key === "ArrowRight" || e.key === "ArrowLeft") return;
-        const inputEl = document.querySelector(`#hexcode-${i}`)
-
-        if (e.key !== "#" && !hexValues.includes(e.key.toUpperCase())) {
-          const sanatized = inputEl.value.split('').filter(char => hexValues.includes(char.toUpperCase()) || char === '#').join('')
-          inputEl.value = sanatized
-          alert(
-            "This is not a valid hexcode. Please use 6 of the following characters: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F"
-          );
-        } else {
-
-          this.colors[i - 1].color = inputEl.value
-          this.updateDOM();
-        }
-
+        if (e.key !== "Enter") return;
+        const color = document.querySelector(`#hexcode-${i}`).value;
+        // const colorCharArray = color.split();
+        // for (let i = 0; i < colorCharArray.length; i++) {
+        //   if (!hexValues.some((e) => e === colorCharArray[i])) {
+        //     alert(
+        //       "This is not a valid hexcode. Please use 6 of the following characters: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F"
+        //     );
+        //   }
+        // }
+        this.colors[i - 1].color = color;
+        this.updateDOM();
       });
     }
   }
@@ -54,9 +50,7 @@ class Palette {
   }
 
   updateDOM() {
-    this.colors.forEach(({
-      color
-    }, i) => {
+    this.colors.forEach(({ color }, i) => {
       const boxEl = document.querySelector(`.color-${i + 1} .color-container`);
       const textEl = document.querySelector(`.color-${i + 1} p input`);
 
